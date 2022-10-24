@@ -1,4 +1,4 @@
-import * as api from '../api/index.js'
+import * as api from '../api/student.js'
 
 export const getAccount=(email)=>async(dispatch)=>{
     try {

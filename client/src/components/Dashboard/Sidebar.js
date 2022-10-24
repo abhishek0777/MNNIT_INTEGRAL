@@ -1,4 +1,4 @@
-import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Switch } from '@mui/material'
+import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, styled, Switch } from '@mui/material'
 import React from 'react'
 
 // import icons
@@ -10,78 +10,101 @@ import NoteAltTwoToneIcon from '@mui/icons-material/NoteAltTwoTone';
 import ArticleTwoToneIcon from '@mui/icons-material/ArticleTwoTone';
 import PersonSearchTwoToneIcon from '@mui/icons-material/PersonSearchTwoTone';
 import PagesTwoToneIcon from '@mui/icons-material/PagesTwoTone';
+import { Link } from 'react-router-dom';
 
+
+const StyledLink=styled(Link)({
+  textDecoration:"none",
+  display:"flex",
+  color:"#000000"
+})
 const Sidebar = () => {
   return (
     <Box 
     flex={1} 
     p={2} 
-    sx={{display:{xs:"none",sm:"block"}}}
+    sx={{display:{xs:"none",md:"block"}}}
     >
         <Box position="fixed">
         <List>
           <ListItem disablePadding>
-            <ListItemButton components="a" href="/">
-              <ListItemIcon>
-                <PushPinTwoToneIcon />
-              </ListItemIcon>
-              <ListItemText primary="Notice" />
+            <ListItemButton>
+              <StyledLink to='/dashboard/notices'>
+                <ListItemIcon>
+                  <PushPinTwoToneIcon />
+                </ListItemIcon>
+                <ListItemText primary="Notices" />
+              </StyledLink>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
             <ListItemButton>
-              <ListItemIcon>
-                <HelpCenterTwoToneIcon/>
-              </ListItemIcon>
-              <ListItemText primary="Queries" />
+              <StyledLink to='/dashboard/queries'>
+                <ListItemIcon>
+                  <HelpCenterTwoToneIcon />
+                </ListItemIcon>
+                <ListItemText primary="Queries" />
+              </StyledLink>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
             <ListItemButton>
-              <ListItemIcon>
-                <StoreTwoToneIcon/>
-              </ListItemIcon>
-              <ListItemText primary="Buy & Sell" />
+              <StyledLink to='/dashboard/buy-and-sell'>
+                <ListItemIcon>
+                  <StoreTwoToneIcon />
+                </ListItemIcon>
+                <ListItemText primary="Buy & Sell" />
+              </StyledLink>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
             <ListItemButton>
-              <ListItemIcon>
-                <DynamicFeedTwoToneIcon/>
-              </ListItemIcon>
-              <ListItemText primary="Feed" />
+              <StyledLink to='/dashboard/feed'>
+                <ListItemIcon>
+                  <DynamicFeedTwoToneIcon />
+                </ListItemIcon>
+                <ListItemText primary="Feed" />
+              </StyledLink>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
             <ListItemButton>
-              <ListItemIcon>
-                <NoteAltTwoToneIcon/>
-              </ListItemIcon>
-              <ListItemText primary="Write a blog" />
+              <StyledLink to='/dashboard/write-a-blog'>
+                <ListItemIcon>
+                  <NoteAltTwoToneIcon />
+                </ListItemIcon>
+                <ListItemText primary="Write a blog" />
+              </StyledLink>
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+          <ListItemButton>
+              <StyledLink to='/dashboard/blogs'>
+                <ListItemIcon>
+                  <ArticleTwoToneIcon />
+                </ListItemIcon>
+                <ListItemText primary="Blogs" />
+              </StyledLink>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
             <ListItemButton>
-              <ListItemIcon>
-                <ArticleTwoToneIcon/>
-              </ListItemIcon>
-              <ListItemText primary="Find blogs" />
+              <StyledLink to='/dashboard/search-students'>
+                <ListItemIcon>
+                  <PersonSearchTwoToneIcon />
+                </ListItemIcon>
+                <ListItemText primary="Search Studends" />
+              </StyledLink>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
             <ListItemButton>
-              <ListItemIcon>
-                <PersonSearchTwoToneIcon/>
-              </ListItemIcon>
-              <ListItemText primary="Search Students" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <PagesTwoToneIcon/>
-              </ListItemIcon>
-              <ListItemText primary="Pages" />
+              <StyledLink to='/dashboard/pages'>
+                <ListItemIcon>
+                  <PagesTwoToneIcon />
+                </ListItemIcon>
+                <ListItemText primary="Pages" />
+              </StyledLink>
             </ListItemButton>
           </ListItem>
         </List>
