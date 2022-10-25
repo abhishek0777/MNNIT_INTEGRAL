@@ -17,3 +17,12 @@ export const getAllItems=()=>async(dispatch)=>{
         console.log(error)
     }
 }
+
+export const deleteItem=(id)=>async(dispatch)=>{
+    try {
+        const {data}=await api.deleteItem(id)
+        dispatch({type:'DELETE_ITEM',payload:data})
+    } catch (error) {
+        console.log(error)
+    }
+}

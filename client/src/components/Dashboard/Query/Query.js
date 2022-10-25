@@ -41,14 +41,14 @@ const Query = ({queryData}) => {
 
   const student=useSelector((state)=>state.student)
   const [commentData,setCommentData]=useState({
-    author:student.name,
     comment:""
   })
 
   const dispatch=useDispatch()
   function onSubmit(){
-    dispatch(postComment(queryData._id,commentData))
-    setCommentData({...commentData,comment:""})
+    const newComment={author:student.name,...commentData}
+    dispatch(postComment(queryData._id,newComment))
+    setCommentData({comment:""})
   }
 
   function onUpVote(a,b){
@@ -68,7 +68,7 @@ const Query = ({queryData}) => {
                 <MoreVertIcon />
             </IconButton>
             }
-            title="Abhishek Vaishnav"
+            title={queryData.author}
             subheader={moment(queryData.createdAt).fromNow()}
         />
         <CardContent>
@@ -119,7 +119,7 @@ const Query = ({queryData}) => {
               )
               .join('\n\n\n')}
               
-            
+            {/* add comment */}
             <div>
                 <TextField 
                 id="Outlined" 
@@ -134,7 +134,7 @@ const Query = ({queryData}) => {
                 <Button sx={{mt:2}} variant="contained" onClick={onSubmit}>Add answer</Button>
             </div>
 
-            
+            {/* comments */}
             <div>
                 {queryData.comments.map(c=>
                 <Card sx={{m:1}}>
@@ -149,7 +149,7 @@ const Query = ({queryData}) => {
                             <MoreVertIcon />
                         </IconButton>
                         }
-                        title="Shrimp and Chorizo Paella"
+                        title={c.author}
                         subheader={moment(c.createdAt).fromNow()}
                     />
 

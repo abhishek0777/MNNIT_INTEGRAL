@@ -7,16 +7,13 @@ import { createQuery, getAllQueries } from '../../actions/queries';
 import Query from './Query/Query';
 
 const Queries = () => {
-  const student=useSelector((state)=>state.student)
-  console.log("student usesel ",student)
+  let student=useSelector((state)=>state.student)
+  const dispatch=useDispatch()
   const [queryData,setQueryData]=useState({
     title:"",
     details:"",
-    picture:"",
-    author:student._id
+    picture:""
   })
-
-  const dispatch=useDispatch()
 
   const queries=useSelector((state)=>state.queries)
 
@@ -25,7 +22,8 @@ const Queries = () => {
   },[dispatch])
 
   function onSubmit(){
-    dispatch(createQuery(queryData))
+    const newQuery={...queryData,author:student.name}
+    dispatch(createQuery(newQuery))
   }
 
   
@@ -37,8 +35,8 @@ const Queries = () => {
             Post your Query
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+            
+            Do you have a query? Query related to anything, be it any information, be it doubt related to academic subject or tips for internship & placement preparations.
           </Typography>
       </CardContent>
       <Grid container sx={{p:1}}>

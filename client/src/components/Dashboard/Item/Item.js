@@ -1,10 +1,19 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Chip, Typography } from '@mui/material'
+import { Button, Card, CardActions, CardContent, CardMedia, Chip, IconButton, Tooltip, Typography } from '@mui/material'
 import React from 'react'
-import buyandsell from '../../../images/buyandsell.svg'
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import CallIcon from '@mui/icons-material/Call';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteItem } from '../../../actions/items';
 const Item = ({item}) => {
+  const student=useSelector((state)=>state.student)
+
+  const dispatch=useDispatch()
+  function handleDelete(){
+    dispatch(deleteItem(item._id.toString()))
+  }
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -14,6 +23,14 @@ const Item = ({item}) => {
         image={item.picture}
       />
       <Chip size="small" sx={{mt:1,ml:0.5}} icon={<LocalOfferIcon/>} label={item.tag} />
+      {(student._id.toString()===item.author)&&(
+        <Tooltip title="If Sold, delete it!">
+          <IconButton sx={{float:"right",mr:0.5}} color="error" onClick={handleDelete}>
+            <DeleteIcon/>
+          </IconButton>
+        </Tooltip>
+      )}
+      
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {item.name}

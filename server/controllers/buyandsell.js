@@ -20,3 +20,14 @@ export const getAllItems=async(req,res)=>{
         res.status(404).json({message:error})
     }
 }
+
+export const deleteItem=async(req,res)=>{
+    const {id}=req.params
+    console.log(id)
+    try {
+        await Item.findByIdAndDelete({_id:id})
+        res.status(201).json(id)
+    } catch (error) {
+        res.status(404).json({message:error})
+    }
+}

@@ -20,7 +20,6 @@ const BuyAndSell = () => {
 
   
   const initialItemState={
-    author:student._id,
     name:"",
     description:"",
     tag:"",
@@ -37,7 +36,9 @@ const BuyAndSell = () => {
   },[dispatch])
 
   function handleAddItem(){
-    dispatch(addItem(itemData))
+    const newItem={author:student._id,...itemData}
+    console.log(newItem)
+    dispatch(addItem(newItem))
     setItemData(initialItemState)
     handleDialogClose()
   }
@@ -112,7 +113,7 @@ const BuyAndSell = () => {
             Add an item to sell
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
+          Do you have any item which you want sell, this is the good place where you can add your items and attract buyers and they will contact you directly.
           </Typography>
           <Button variant="contained" sx={{mt:5}} onClick={handleDialogOpen}>Add Item</Button>
       </CardContent>
@@ -189,7 +190,7 @@ const BuyAndSell = () => {
       >
         {[...new Array(1)]
           .map(
-            () => `Help your batchmates,juniors or may be senior by writing answers to their queries and your answer will help everyone to resolve their query.`,
+            () => `Add your item details here, please make sure to provide photo of an item, suitable price to sell it fast and valid contact number of yours or someone who can deal with buyers.`,
           )
           .join('\n\n\n')}
 

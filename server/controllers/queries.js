@@ -3,6 +3,7 @@ import Query from "../models/Query.js";
 export const createQuery=async(req,res)=>{
     const queryData=req.body
     const newQuery=new Query(queryData)
+    console.log(newQuery)
     try {
         await newQuery.save()
         res.status(201).json(newQuery)
