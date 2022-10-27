@@ -1,4 +1,4 @@
-import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, styled, Switch } from '@mui/material'
+import { Avatar, Box, Chip, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText, styled, Switch } from '@mui/material'
 import React from 'react'
 
 // import icons
@@ -10,6 +10,10 @@ import NoteAltTwoToneIcon from '@mui/icons-material/NoteAltTwoTone';
 import ArticleTwoToneIcon from '@mui/icons-material/ArticleTwoTone';
 import PersonSearchTwoToneIcon from '@mui/icons-material/PersonSearchTwoTone';
 import PagesTwoToneIcon from '@mui/icons-material/PagesTwoTone';
+
+import PersonTwoToneIcon from '@mui/icons-material/PersonTwoTone';
+import ManageAccountsTwoToneIcon from '@mui/icons-material/ManageAccountsTwoTone';
+import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
 import { Link } from 'react-router-dom';
 
 
@@ -93,7 +97,7 @@ const Sidebar = () => {
                 <ListItemIcon>
                   <PersonSearchTwoToneIcon />
                 </ListItemIcon>
-                <ListItemText primary="Search Studends" />
+                <ListItemText primary="Search Students" />
               </StyledLink>
             </ListItemButton>
           </ListItem>
@@ -108,7 +112,48 @@ const Sidebar = () => {
             </ListItemButton>
           </ListItem>
         </List>
+
+        <Divider variant="middle">
+          <Chip label="Profile"/>
+        </Divider>
+
+        
+
+        <List>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <StyledLink to='/dashboard/profile'>
+                <ListItemIcon>
+                  <PersonTwoToneIcon />
+                </ListItemIcon>
+                <ListItemText primary="Profile" />
+              </StyledLink>
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <StyledLink to='/dashboard/update-profile'>
+                <ListItemIcon>
+                  <ManageAccountsTwoToneIcon />
+                </ListItemIcon>
+                <ListItemText primary="Manage profile" />
+              </StyledLink>
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <StyledLink to='/dashboard/notices'>
+                <ListItemIcon>
+                  <LogoutTwoToneIcon />
+                </ListItemIcon>
+                <ListItemText primary="Logout" />
+              </StyledLink>
+            </ListItemButton>
+          </ListItem>
+        </List>
+
         </Box>
+
     
     </Box>
   )

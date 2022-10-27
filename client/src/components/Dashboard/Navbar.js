@@ -52,6 +52,8 @@ const Navbar = () => {
         if(loggedInStudent)
         dispatch(getAccount(loggedInStudent))
     },[dispatch])
+
+    const open=true
   return (
     <AppBar position="sticky">
         <StyledToolbar>

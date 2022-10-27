@@ -26,3 +26,16 @@ export const createAccount=async(req,res)=>{
         res.status(404).json({message:error.message})
     }
 }
+
+export const updateProfile=async(req,res)=>{
+    const {id}=req.params
+    const updatedStudent=req.body
+    console.log(updatedStudent)
+    try {
+        const updatedProfile=await Student.findOneAndUpdate({_id:id},updatedStudent,{new:true})
+        res.status(201).json(updatedProfile)
+    } catch (error) {
+        res.status(404).json({message:error.message})
+    }
+}
+

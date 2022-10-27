@@ -15,6 +15,8 @@ import WriteABlog from "./components/Dashboard/WriteABlog";
 import Blogs from "./components/Dashboard/Blogs";
 import SearchStudents from "./components/Dashboard/SearchStudents";
 import Pages from "./components/Dashboard/Pages";
+import Profile from "./components/Dashboard/Profile";
+import UpdateProfile from "./components/Dashboard/UpdateProfile";
 function App() {
 
   
@@ -33,6 +35,9 @@ function App() {
           <Route path='/dashboard/blogs' element={<Blogs/>}/>
           <Route path='/dashboard/search-students' element={<SearchStudents/>}/>
           <Route path='/dashboard/pages' element={<Pages/>}/>
+          {/* Profile */}
+          <Route path='/dashboard/profile' element={<Profile/>}/>
+          <Route path='/dashboard/update-profile' element={<UpdateProfile/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

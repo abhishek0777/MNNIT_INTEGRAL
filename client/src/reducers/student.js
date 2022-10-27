@@ -8,6 +8,8 @@ export default (student=[],action)=>{
             return action.payload;
         case 'CREATE':
             return action.payload;
+        case 'UPDATE_PROFILE':
+            return action.payload;
         default:
             return student;
     }

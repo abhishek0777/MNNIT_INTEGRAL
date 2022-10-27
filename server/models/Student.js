@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 const studentSchema=mongoose.Schema({
     name:String,
     email:String,
+    gsuite:String,
     picture:String,
     resume:String,
     registration_number:String,

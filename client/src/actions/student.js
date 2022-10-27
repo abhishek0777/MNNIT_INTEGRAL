@@ -17,3 +17,12 @@ export const createAccount=(studentDetails)=> async(dispatch)=>{
         console.log(error)
     }
 }
+
+export const updateProfile=(id,studentDetails)=>async(dispatch)=>{
+    try {
+        const {data}=await api.updateProfile(id,studentDetails)
+        dispatch({type:'UPDATE_PROFILE',payload:data})
+    } catch (error) {
+        console.log(error)
+    }
+}
