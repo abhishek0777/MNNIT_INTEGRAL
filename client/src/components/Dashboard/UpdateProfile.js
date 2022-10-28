@@ -1,8 +1,11 @@
-import { Avatar, Box, Button, Card, CardContent, CardMedia, Chip, FormControl, Grid, InputLabel, ListSubheader, MenuItem, OutlinedInput, Paper, Select, TextField, Typography, useTheme } from '@mui/material'
+import { Avatar, Box, Button, Card, CardContent, CardMedia, Chip, FormControl, Grid, InputAdornment, InputLabel, ListSubheader, MenuItem, OutlinedInput, Paper, Select, TextField, Typography, useTheme } from '@mui/material'
 import React from 'react'
 import FileBase from 'react-file-base64'
 import { useDispatch, useSelector } from 'react-redux';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkIcon from '@mui/icons-material/Link';
 import profileupdate from '../../images/profileupdate.svg'
 import { updateProfile } from '../../actions/student';
 const UpdateProfile = () => {
@@ -224,11 +227,15 @@ clubset.sort()
   const [profilePicture,setProfilePicture]=React.useState(student.picture)
   const [updatedGsuiteID,setUpdatedGsuiteID]=React.useState(student.gsuite)
   const [updatedRegistrationNumber,setUpdatedRegistrationNumber]=React.useState(student.registration_number)
+  const [updatedAbout,setUpdatedAbout]=React.useState(student.about)
   const [updatedCourse,setUpdatedCourse]=React.useState(student.course)
   const [updatedBranch,setUpdatedBranch]=React.useState(student.branch)
   const [updatedSkills,setUpdatedSkills]=React.useState(student.skills)
   const [updatedClubs,setUpdatedClubs]=React.useState(student.clubs)
-//   achievments is pending
+  const [updatedAchievements,setUpdatedAchievements]=React.useState(student.achievements)
+  const [updatedLinkedIn,setUpdatedLinkedIn]=React.useState(student.linkedIn)
+  const [updatedGithub,setUpdatedGithub]=React.useState(student.github)
+  const [updatedWebsite,setUpdatedWebsite]=React.useState(student.website)
   const [updatedInternship,setUpdatedInternship]=React.useState(student.internship)
   const [updatedPlacement,setUpdatedPlacement]=React.useState(student.placement)
   const [updatedResume,setUpdatedResume]=React.useState(student.resume)
@@ -249,16 +256,21 @@ clubset.sort()
     email:student.email,
     gsuite:student.gsuite,
     registration_number:student.gsuite,
+    about:student.about,
     course:student.course,
     branch:student.branch,
     skills:student.skills,
     clubs:student.clubs,
     achievements:student.achievements,
+    linkedIn:student.linkedIn,
+    github:student.github,
+    website:student.website,
     internship:student.internship,
     placement:student.placement,
     resume:student.resume
   }
   function handleSubmit(){
+    console.log(updatedAbout)
     if(profilePicture!==""){
         console.log("Profile picture updated")
         newStudent.picture=profilePicture
@@ -270,6 +282,10 @@ clubset.sort()
     if(updatedRegistrationNumber!==newStudent.registration_number){
         console.log("Reg. no updated")
         newStudent.registration_number=updatedRegistrationNumber
+    }
+    if(updatedAbout!==newStudent.about){
+        console.log("About you updated")
+        newStudent.about=updatedAbout
     }
     if(updatedCourse!==newStudent.course){
         console.log("Course updated")
@@ -287,6 +303,22 @@ clubset.sort()
         console.log("Clubs updated")
         newStudent.clubs=updatedClubs
     }
+    if(updatedAchievements!==newStudent.achievements){
+        console.log("achievements updated")
+        newStudent.achievements=updatedAchievements
+    }
+    if(updatedLinkedIn!==newStudent.linkedIn){
+        console.log("linkedIn updated")
+        newStudent.linkedIn=updatedLinkedIn
+    }
+    if(updatedGithub!==newStudent.github){
+        console.log("Github updated")
+        newStudent.github=updatedGithub
+    }
+    if(updatedWebsite!==newStudent.website){
+        console.log("Website updated")
+        newStudent.website=updatedWebsite
+    }
     if(updatedInternship!==newStudent.internship){
         console.log("Internship updated")
         newStudent.internship=updatedInternship
@@ -300,9 +332,8 @@ clubset.sort()
         newStudent.resume=updatedResume
     }
     console.log(newStudent)
-    dispatch(updateProfile(student._id.toString(),newStudent))
+    // dispatch(updateProfile(student._id.toString(),newStudent))
   }
-//   console.log(student)
   return (
     <>
     <Paper sx={{p:0.5,m:1}}>
@@ -347,7 +378,7 @@ clubset.sort()
                         id="Outlined" 
                         label="Name" 
                         sx={{width:'100%',mb:0.5}} 
-                        value="Abhishek Vaishnav"
+                        value={student.name}
                         disabled
                     />
                     <Typography variant="body2" color="text.secondary">
@@ -360,7 +391,7 @@ clubset.sort()
                         id="Outlined" 
                         label="Personal E-mail" 
                         sx={{width:'100%',mb:0.5}} 
-                        value="abhishek777vaishnav@gmail.com"
+                        value={student.email}
                         disabled
                     />
                     <Typography variant="body2" color="text.secondary">
@@ -402,6 +433,21 @@ clubset.sort()
                     </Typography>
                 </Paper>
 
+                <Paper sx={{p:1,m:2}}>
+                    <TextField 
+                        id="Outlined" 
+                        label="About you" 
+                        sx={{width:'100%',mb:0.5}} 
+                        focused 
+                        multiline 
+                        rows={3}
+                        value={updatedAbout}
+                        onChange={(e)=>handleChange(e,setUpdatedAbout)}
+                    />
+                    <Typography variant="body2" color="text.secondary">
+                        Write three or four lines about you which defines you overall, informs readers about your professional background, key accomplishments and personal values.
+                    </Typography>
+                </Paper>
                 
                 <Paper sx={{p:1,m:2}}>
                     <FormControl sx={{width:'100%'}}>
@@ -568,6 +614,88 @@ clubset.sort()
                     </FormControl>
                     <Typography variant="body2" color="text.secondary">
                         Are you part of any Club?If yes, then select all those to add to your profile.
+                    </Typography>
+                </Paper>
+
+                <Paper sx={{p:1,m:2}}>
+                    <TextField 
+                        id="Outlined" 
+                        label="Achievements" 
+                        sx={{width:'100%',mb:0.5}} 
+                        focused 
+                        multiline 
+                        rows={4}
+                        value={updatedAchievements}
+                        onChange={(e)=>handleChange(e,setUpdatedAchievements)}
+                    />
+                    <Typography variant="body2" color="text.secondary">
+                        Write three or four lines about you which defines you overall, informs readers about your professional background, key accomplishments and personal values.
+                    </Typography>
+                </Paper>
+
+                <Paper sx={{p:1,m:2}}>
+                    
+                    <TextField
+                        id="outlined"
+                        label="LinkedIn URL"
+                        sx={{width:'100%',mb:0.5}}
+                        InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                            <LinkedInIcon color="primary"/>
+                            </InputAdornment>
+                        ),
+                        }}
+                        variant="standard"
+                        value={updatedLinkedIn}
+                        onChange={(e)=>handleChange(e,setUpdatedLinkedIn)}
+                    />
+                    <Typography variant="body2" color="text.secondary">
+                        Put your LinkedIn URL? If you don't have LinkedIn account, then create because ultimately you need it.
+                    </Typography>
+                </Paper>
+
+                <Paper sx={{p:1,m:2}}>
+                    
+                    <TextField
+                        id="outlined"
+                        label="Github URL"
+                        sx={{width:'100%',mb:0.5}}
+                        InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                            <GitHubIcon/>
+                            </InputAdornment>
+                        ),
+                        }}
+                        variant="standard"
+                        value={updatedGithub}
+                        onChange={(e)=>handleChange(e,setUpdatedGithub)}
+                    />
+                    <Typography variant="body2" color="text.secondary">
+                        Put your Github URL? If you don't have Github account, then create because ultimately you need it.
+                    </Typography>
+                </Paper>
+
+                <Paper sx={{p:1,m:2}}>
+                    
+                    <TextField
+                        id="outlined"
+                        label="Personal Website URL"
+                        sx={{width:'100%',mb:0.5}}
+                        InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                            <LinkIcon/>
+                            </InputAdornment>
+                        ),
+                        }}
+                        variant="standard"
+                        value={updatedWebsite}
+                        onChange={(e)=>handleChange(e,setUpdatedWebsite)}
+                    />
+                    <Typography variant="body2" color="text.secondary">
+                        If you have ever created your portfolio website and its hosted, then you can put the link here.
                     </Typography>
                 </Paper>
 
