@@ -332,7 +332,7 @@ clubset.sort()
         newStudent.resume=updatedResume
     }
     console.log(newStudent)
-    // dispatch(updateProfile(student._id.toString(),newStudent))
+    dispatch(updateProfile(student._id.toString(),newStudent))
   }
   return (
     <>

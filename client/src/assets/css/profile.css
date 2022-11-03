@@ -1,0 +1,115 @@
+.profile-1{
+    background-color: #e9d5a1;
+    height: 93vh;
+}
+.student-name{
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-style: inherit;
+    font-size: 50px;
+    color:#191507;
+}
+.student-branch{
+    font-family: "Lucida Console", "Courier New", monospace;
+    text-transform: uppercase;
+    font-style: inherit;
+    font-size: 25px;
+    color:#191507;
+}
+.icons-bar{
+    margin: 15px 15px;
+}
+.button-container{
+    background-color:#191507;
+    padding:10px 10px;
+    border-radius: 50%;
+}
+
+.social-icon{
+    color:white;
+}
+
+.profile-2{
+    /* background-color: #e9d5a1; */
+    height: 70vh;
+}
+
+.profile-2-header-container{
+    padding-top: 2%;
+}
+
+.profile-2-header{
+    width:100%;
+    font-family: monospace;
+    text-align: center;
+}
+
+.profile-3-container{
+    background-color: #e9d5a1;
+    font-family: monospace;
+    text-align: center;
+}
+
+.profile-3-header{
+    padding-top:2%;
+}
+
+.profile-4-container{
+    height: 70vh;
+}
+.profile-4-header{
+    width:100%;
+    font-family: monospace;
+    text-align: center;
+    padding-top: 2%;
+}
+
+.skill-card{
+    margin-left: 30px;
+    margin-right: 30px;
+    box-shadow: 10px 10px 5px #aaaaaa;
+    background-color: #191507;
+    height: 50px;
+}
+
+.skill-name{
+    font-family: 'Satisfy',sans-serif;
+    text-align: center;
+    font-size: 30px;
+    color:whitesmoke
+}
+
+.profile-5-container{
+    background-color: #e9d5a1;
+    height:70vh
+}
+
+.profile-5-header{
+    width: 100%;
+    font-family:monospace;
+    text-align: center;
+    padding-top: 2%;
+}
+
+.profile-6-header{
+    width: 100%;
+    font-family: monospace;
+    text-align: center;
+    padding-top: 2%;
+}
+
+.pdf-viewer-container{
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+
+.pdf-viewer-header{
+    /* background-color: #282c34; */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}

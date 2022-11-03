@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
-
+import { useSelector } from "react-redux";
 // import pages
 import Home from "./pages/Home";
 
@@ -15,12 +15,13 @@ import WriteABlog from "./components/Dashboard/WriteABlog";
 import Blogs from "./components/Dashboard/Blogs";
 import SearchStudents from "./components/Dashboard/SearchStudents";
 import Pages from "./components/Dashboard/Pages";
-import Profile from "./components/Dashboard/Profile";
+import Profile from "./components/Dashboard/Profile/Profile";
 import UpdateProfile from "./components/Dashboard/UpdateProfile";
+
 function App() {
 
   
-
+  const student=useSelector((state)=>state.student)
   return (
     <BrowserRouter>
       <Routes>
@@ -36,7 +37,7 @@ function App() {
           <Route path='/dashboard/search-students' element={<SearchStudents/>}/>
           <Route path='/dashboard/pages' element={<Pages/>}/>
           {/* Profile */}
-          <Route path='/dashboard/profile' element={<Profile/>}/>
+          <Route path='/dashboard/profile' element={<Profile student={student}/>}/>
           <Route path='/dashboard/update-profile' element={<UpdateProfile/>}/>
         </Route>
       </Routes>

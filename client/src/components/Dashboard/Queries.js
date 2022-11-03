@@ -9,11 +9,12 @@ import Query from './Query/Query';
 const Queries = () => {
   let student=useSelector((state)=>state.student)
   const dispatch=useDispatch()
-  const [queryData,setQueryData]=useState({
+  const initialQueryState={
     title:"",
     details:"",
     picture:""
-  })
+  }
+  const [queryData,setQueryData]=useState(initialQueryState)
 
   const queries=useSelector((state)=>state.queries)
 
@@ -24,6 +25,7 @@ const Queries = () => {
   function onSubmit(){
     const newQuery={...queryData,author:student.name}
     dispatch(createQuery(newQuery))
+    setQueryData(initialQueryState)
   }
 
   
