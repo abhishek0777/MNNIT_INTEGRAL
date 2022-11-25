@@ -11,6 +11,16 @@ export const getAccount=async(req,res)=>{
         console.log(error)
     }
 }
+
+export const getAccounts=async(req,res)=>{
+    try {
+        console.log("get accounts called")
+        const data=await Student.find()
+        res.status(200).json(data)
+    } catch (error) {
+        console.log(error)
+    }
+}
 export const createAccount=async(req,res)=>{
     const studentDetails=req.body
     

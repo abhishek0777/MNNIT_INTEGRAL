@@ -9,6 +9,23 @@ export const getAccount=(email)=>async(dispatch)=>{
     }
 }
 
+export const getAccounts=()=>async(dispatch)=>{
+    try {
+        const {data}=await api.getAccounts()
+        dispatch({type:'GET_ACCOUNTS',payload:data})
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const viewProfile=(data)=>async(dispatch)=>{
+    try {
+        dispatch({type:'VIEW_STUDENT_PROFILE',payload:data})
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 export const createAccount=(studentDetails)=> async(dispatch)=>{
     try {
         const {data}=await api.createAccount(studentDetails)

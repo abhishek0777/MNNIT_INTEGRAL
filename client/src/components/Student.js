@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector,useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,Navigate } from 'react-router-dom'
 import { getAccount } from '../actions/student'
 const Student = () => {
   const student=useSelector((state)=>state.student)
@@ -20,11 +20,14 @@ const Student = () => {
     dispatch(getAccount(loggedInStudent))
   },[])
 
+
   return (
+    
     <div>
-        <h1 style={{backgroundColor:"#381DFC", color:"whitesmoke"}}>{student.name}</h1>
-        <p style={{backgroundColor:"#89A9FF"}}>{student.email}</p>
-        <img src={student.picture} alt="" />
+        <Navigate to="/dashboard/profile" replace={true} />
+        {/* <h1 style={{backgroundColor:"#381DFC", color:"whitesmoke"}}>{student.name}</h1> */}
+        {/* <p style={{backgroundColor:"#89A9FF"}}>{student.email}</p> */}
+        {/* <img src={student.picture} alt="" /> */}
         {/* <button onClick={onLogout}>Logout</button> */}
     </div>
   )

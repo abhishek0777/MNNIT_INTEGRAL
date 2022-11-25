@@ -1,5 +1,5 @@
 import React from 'react'
-
+import '../assets/css/home.css'
 // import components
 import Navbar from '../components/Home/Navbar'
 import Login from '../components/Home/Login'
@@ -12,7 +12,7 @@ const Home = () => {
     <div>
         <Navbar/>
         <Login/>
-        <AboutUs/>
+        {/* <AboutUs/> */}
         <Features/>
         <ContactUs/>
         <Footer/>

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import {Container,Box,Button} from '@mui/material'
+import {Container,Box,Button, Grid} from '@mui/material'
 import {useDispatch,useSelector} from 'react-redux'
 import {GoogleLogin} from '@react-oauth/google'
 import jwt_decode from 'jwt-decode'
@@ -40,9 +40,23 @@ const Login = () => {
     }
     
   return (
-        <Container fixed>
-            <Box>
-                {Object.keys(student).length!==0?(
+        <>
+        <div>
+          <Grid
+          container
+          direction="row"
+          justifyContent="space-around"
+          alignItems="center"
+          >
+            <Grid item sm={5} sx={{p:5}}>
+              <h3 className='login-heading'>MNNIT Integral</h3>
+              <p className='login-text'>
+              MNNIT Integral provides registered students of MNNIT to form a
+              social networking platform among themselves, enabling them to connect with their seniors,
+              batchmates and juniors for sharing information, putting queries, answering someone’s
+              doubt and to communicate with anyone.
+              </p>
+              {Object.keys(student).length!==0?(
                 
                 <Button variant="contained" onClick={()=>navigate('/dashboard')}>Go to Dashboard</Button>
                 ):(
@@ -52,9 +66,15 @@ const Login = () => {
                     text="signin"
                     theme="filled_black"
                 />
-                )}
-            </Box>
-        </Container>
+              )}
+            </Grid>
+            <Grid item sm={7} className='login-background-image'>
+                 
+            </Grid>
+          </Grid>
+        </div>
+        </>
+        
         
 
   )

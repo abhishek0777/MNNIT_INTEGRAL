@@ -22,12 +22,14 @@ function App() {
 
   
   const student=useSelector((state)=>state.student)
+  const externalStudent=useSelector((state)=>state.studentProfile)
+  console.log(externalStudent)
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/dashboard' element={<Dashboard/>}>
-          <Route index element={<Student/>}/>
+          <Route index element={<Queries/>}/>
           <Route path='/dashboard/notices' element={<Notice/>}/>
           <Route path='/dashboard/queries' element={<Queries/>}/>
           <Route path='/dashboard/buy-and-sell' element={<BuyAndSell/>}/>
@@ -35,9 +37,11 @@ function App() {
           <Route path='/dashboard/write-a-blog' element={<WriteABlog/>}/>
           <Route path='/dashboard/blogs' element={<Blogs/>}/>
           <Route path='/dashboard/search-students' element={<SearchStudents/>}/>
+          <Route path='/dashboard/search-students/student' element={<Profile student={externalStudent}/>}/>
           <Route path='/dashboard/pages' element={<Pages/>}/>
           {/* Profile */}
           <Route path='/dashboard/profile' element={<Profile student={student}/>}/>
+          
           <Route path='/dashboard/update-profile' element={<UpdateProfile/>}/>
         </Route>
       </Routes>
