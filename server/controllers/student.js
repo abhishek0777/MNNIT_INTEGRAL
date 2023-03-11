@@ -4,8 +4,18 @@ import Student from "../models/Student.js"
 export const getAccount=async(req,res)=>{
     const {email}=req.params
     try {
-        console.log(email)
         const data=await Student.findOne({email:email})
+        res.status(201).json(data)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getAccountById=async(req,res)=>{
+    const {id}=req.params
+    console.log(id)
+    try {
+        const data=await Student.findOne({_id:id})
         res.status(201).json(data)
     } catch (error) {
         console.log(error)
@@ -14,7 +24,6 @@ export const getAccount=async(req,res)=>{
 
 export const getAccounts=async(req,res)=>{
     try {
-        console.log("get accounts called")
         const data=await Student.find()
         res.status(200).json(data)
     } catch (error) {

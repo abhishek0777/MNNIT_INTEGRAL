@@ -9,6 +9,14 @@ export const getAccount=(email)=>async(dispatch)=>{
     }
 }
 
+export const getAccountById=(id)=>async(dispatch)=>{
+    try {
+        const {data}=await api.getAccountById(id)
+        dispatch({type:'BLOG_AUTHOR',payload:data})
+    } catch (error) {
+        console.log(error)
+    }
+}
 export const getAccounts=()=>async(dispatch)=>{
     try {
         const {data}=await api.getAccounts()

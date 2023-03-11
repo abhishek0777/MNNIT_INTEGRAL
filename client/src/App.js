@@ -23,7 +23,7 @@ function App() {
   
   const student=useSelector((state)=>state.student)
   const externalStudent=useSelector((state)=>state.studentProfile)
-  console.log(externalStudent)
+
   return (
     <BrowserRouter>
       <Routes>

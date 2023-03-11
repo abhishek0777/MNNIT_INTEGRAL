@@ -2,7 +2,7 @@ import React from 'react'
 
 const MNNITIntegralLogo = () => {
   return (
-    <div>MNNITIntegralLogo</div>
+    <div>MNNIT Integral</div>
   )
 }
 

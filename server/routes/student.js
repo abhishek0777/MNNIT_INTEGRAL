@@ -1,9 +1,11 @@
 import express from 'express'
 const router=express.Router()
 
-import {getAccount,getAccounts,createAccount, updateProfile} from '../controllers/student.js'
+import {getAccount,getAccounts,createAccount, updateProfile, getAccountById} from '../controllers/student.js'
 
 router.get('/:email',getAccount)
+
+router.get('/id/:id',getAccountById)
 
 router.get('/',getAccounts)
 
