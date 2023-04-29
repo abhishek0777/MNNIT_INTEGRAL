@@ -33,8 +33,8 @@ const Blogs = () => {
   const [blogDetails,setBlogDetails]=useState("")
   function handleShowBlog(blog){
     console.log(blog)
-    setShowBlog(true)
     setBlogDetails(blog)
+    setShowBlog(true)
   }
 
   function handleBack(){

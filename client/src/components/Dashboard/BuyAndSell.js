@@ -173,7 +173,6 @@ const BuyAndSell = () => {
         <Grid item xs={12} sm={6} md={4}>
             <Item key={item._id} item={item}/>
         </Grid>)}
-        
       </Grid>
     </Paper>
 

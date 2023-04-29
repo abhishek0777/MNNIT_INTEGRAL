@@ -15,3 +15,4 @@ export default (queries=[],action)=>{
             return queries;
     }
 }
+

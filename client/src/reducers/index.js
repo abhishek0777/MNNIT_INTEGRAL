@@ -5,11 +5,15 @@ import items from './items'
 import students from './students'
 import studentProfile from './studentProfile'
 import blogs from './blogs'
+import pages from './pages'
+import pageRequests from './pageRequests'
 export default combineReducers({
     student,
     queries,
     items,
     students,
     studentProfile,
-    blogs
+    blogs,
+    pages,
+    pageRequests
 })

@@ -7,6 +7,7 @@ import SectionFive from './profile-components/SectionFive'
 import SectionSix from './profile-components/SectionSix'
 import '../../../assets/css/profile.css'
 const Profile = ({student}) => {
+  console.log(student)
   return (
     <>
     <SectionOne student={student} />

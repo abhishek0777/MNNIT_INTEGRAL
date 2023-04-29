@@ -83,7 +83,11 @@ const studentSchema=mongoose.Schema({
     },
     website:String,
     // store objectID
-    blogs:[String]   
+    blogs:[String],
+    isAdmin:{
+        type:Boolean,
+        default:false
+    }   
 },{
     timestamps:true
 })

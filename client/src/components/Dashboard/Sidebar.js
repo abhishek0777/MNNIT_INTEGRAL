@@ -10,11 +10,13 @@ import NoteAltTwoToneIcon from '@mui/icons-material/NoteAltTwoTone';
 import ArticleTwoToneIcon from '@mui/icons-material/ArticleTwoTone';
 import PersonSearchTwoToneIcon from '@mui/icons-material/PersonSearchTwoTone';
 import PagesTwoToneIcon from '@mui/icons-material/PagesTwoTone';
+import ArchiveIcon from '@mui/icons-material/Archive';
 
 import PersonTwoToneIcon from '@mui/icons-material/PersonTwoTone';
 import ManageAccountsTwoToneIcon from '@mui/icons-material/ManageAccountsTwoTone';
 import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 const StyledLink=styled(Link)({
@@ -23,6 +25,8 @@ const StyledLink=styled(Link)({
   color:"#000000"
 })
 const Sidebar = () => {
+
+  const student=useSelector((state)=>state.student)
   return (
     <Box 
     flex={1} 
@@ -101,6 +105,16 @@ const Sidebar = () => {
               </StyledLink>
             </ListItemButton>
           </ListItem>
+          {(student.isAdmin)&&(<ListItem disablePadding>
+            <ListItemButton>
+              <StyledLink to='/dashboard/pageRequests'>
+                <ListItemIcon>
+                  <ArchiveIcon />
+                </ListItemIcon>
+                <ListItemText primary="Page requests" />
+              </StyledLink>
+            </ListItemButton>
+          </ListItem>)}
           <ListItem disablePadding>
             <ListItemButton>
               <StyledLink to='/dashboard/pages'>

@@ -17,6 +17,7 @@ import SearchStudents from "./components/Dashboard/SearchStudents";
 import Pages from "./components/Dashboard/Pages";
 import Profile from "./components/Dashboard/Profile/Profile";
 import UpdateProfile from "./components/Dashboard/UpdateProfile";
+import PageRequests from "./components/Dashboard/PageRequests";
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
           <Route path='/dashboard/blogs' element={<Blogs/>}/>
           <Route path='/dashboard/search-students' element={<SearchStudents/>}/>
           <Route path='/dashboard/search-students/student' element={<Profile student={externalStudent}/>}/>
+          <Route path='/dashboard/pageRequests' element={<PageRequests/>}/>
           <Route path='/dashboard/pages' element={<Pages/>}/>
           {/* Profile */}
           <Route path='/dashboard/profile' element={<Profile student={student}/>}/>
