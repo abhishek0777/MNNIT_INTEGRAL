@@ -7,6 +7,7 @@ import studentProfile from './studentProfile'
 import blogs from './blogs'
 import pages from './pages'
 import pageRequests from './pageRequests'
+import notices from './notices'
 export default combineReducers({
     student,
     queries,
@@ -15,5 +16,6 @@ export default combineReducers({
     studentProfile,
     blogs,
     pages,
-    pageRequests
+    pageRequests,
+    notices
 })

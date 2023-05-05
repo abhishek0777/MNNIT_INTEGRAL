@@ -11,7 +11,8 @@ const PageSchema=mongoose.Schema({
         images:[String],
         likes:[String],
         username:String,
-        userimage:String
+        userimage:String,
+        date:Date
     },{
         timestamps:true
     }]

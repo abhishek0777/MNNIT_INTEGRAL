@@ -11,6 +11,7 @@ import blog from './routes/blog.js'
 import blogs from './routes/blogs.js'
 import pages from './routes/pages.js'
 import unprotectedRoutes from './routes/unprotectedRoutes.js'
+import notices from './routes/notices.js'
 const app=express()
 
 dotenv.config()
@@ -28,6 +29,7 @@ app.use('/buyandsell',buyandsellRoutes)
 app.use('/blog',blog)
 app.use('/blogs',blogs)
 app.use('/pages',pages)
+app.use('/notices',notices)
 app.use('/unprotected',unprotectedRoutes)
 
 const PORT=process.env.PORT||5000

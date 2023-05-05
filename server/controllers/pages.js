@@ -89,7 +89,10 @@ export const followPage=async(req,res)=>{
 export const postingAPost=async(req,res)=>{
     try {
         const {id}=req.params
-        const post=req.body
+        let post=req.body
+        post={...post,
+            date:new Date()
+        }
         let page=await Page.findOne({_id:id})
         page.posts.unshift(post)
         const updatedPage=await Page.findOneAndUpdate({_id:id},page,{new:true})

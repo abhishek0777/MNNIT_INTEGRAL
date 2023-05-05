@@ -17,6 +17,7 @@ import Carousel from 'react-material-ui-carousel';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import CancelIcon from '@mui/icons-material/Cancel';
+import moment from 'moment'
 
 const Pages = () => {
 
@@ -381,7 +382,7 @@ const Pages = () => {
     </Card>
 
     {/* Form to post something */}
-    <Card sx={{m:5, display:'flex'}}>
+    {(page.admin===student._id.toString())&&<Card sx={{m:5, display:'flex'}}>
         <Grid 
             container
             direction="row"
@@ -416,7 +417,7 @@ const Pages = () => {
                 <Button variant="outlined" onClick={handlePost}>Post</Button>
             </Grid>
         </Grid>
-    </Card>
+    </Card>}
     <Paper sx={{m:5,alignItems:'center',justifyContent:'center'}}>
       <Grid
         container
@@ -437,7 +438,7 @@ const Pages = () => {
           </IconButton>
           }
           title={item.username}
-          subheader="Post"
+          subheader={moment(item.date).fromNow()}
       />
       <CardContent>
         <Typography gutterBottom variant="body2" color="grey" component="div">
