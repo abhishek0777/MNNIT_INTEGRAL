@@ -9,7 +9,9 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import Blog from './Blog.js';
-import WriteABlog from './WriteABlog.js';
+import textureImage from '../../images/texture.jpg'
+import textureImage1 from '../../images/texture1.jpg'
+// backgroundImage:`url(${textureImage})`
 
 const Blogs = () => {
   
@@ -115,13 +117,13 @@ const Blogs = () => {
       
     </Card>
     </>)}
-    {(!showBlog)&&(<><Card sx={{m:2,display: 'flex'}}>
+    {(!showBlog)&&(<><Card sx={{m:2,display: 'flex',backgroundImage:`url(${textureImage})`}}>
       <CardContent sx={{m:0}}>
           <Typography gutterBottom variant="h4" component="div">
             Blogs
           </Typography>
           <Typography variant="body2" color="text.secondary">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel velit in velit interdum ornare. 
+          The blogs section of a college website provides a platform for students, faculty, and alumni to share their thoughts, experiences, and expertise on a variety of topics.
           <br></br>
           
           <ButtonGroup sx={{mt:4}}>

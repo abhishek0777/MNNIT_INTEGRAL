@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllPages, likeAPost } from '../../actions/pages'
 import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Grid, IconButton, Paper, Typography } from '@mui/material'
-import feed from '../../images/feed.png'
+import feed from '../../images/feed.svg'
 import { red } from '@mui/material/colors'
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Carousel from 'react-material-ui-carousel';
@@ -10,6 +10,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import moment from 'moment'
 import EventIcon from '@mui/icons-material/Event';
+import textureImage from '../../images/texture.jpg'
+import textureImage1 from '../../images/texture1.jpg'
 
 const Feed = () => {
   const dispatch=useDispatch()
@@ -47,13 +49,13 @@ const Feed = () => {
   }
   return (
     <>
-      <Card sx={{m:2,display: 'flex'}}>
+      <Card sx={{m:2,display: 'flex',backgroundImage:`url(${textureImage})`}}>
         <CardContent sx={{m:0}}>
             <Typography gutterBottom variant="h4" component="div">
-              Write a blog for community
+              MNNIT Integral feed
             </Typography>
             <Typography variant="body2" color="text.secondary">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel velit in velit interdum ornare. Proin malesuada, nisi vel fringilla euismod, magna massa congue lacus, eget commodo magna elit at dui. Curabitur accumsan vel velit vel accumsan. Sed congue ipsum et eleifend mollis. Sed dapibus velit vel lacinia malesuada. Integer vitae vestibulum ante. In hac habitasse platea dictumst. Sed tincidunt, metus id egestas fringilla, quam leo rutrum ipsum, eu aliquet nisi nisi et nulla.
+            The term 'feed' in the context of social media refers to a constantly updating stream of content that appears on a user's homepage or profile page. This content includes posts, photos, videos, and other updates shared by the user's connections or accounts they follow. The feed is designed to be personalized to each user's interests and preferences, and is intended to keep them engaged and up-to-date on the latest news and trends.
             </Typography>
         </CardContent>
         <CardMedia
@@ -64,7 +66,7 @@ const Feed = () => {
         />
       </Card>
 
-      <Paper sx={{m:2,alignItems:'center',justifyContent:'center'}}>
+      <Paper sx={{m:2,alignItems:'center',justifyContent:'center',backgroundImage:`url(${textureImage1})`}}>
       <Grid
         container
         direction='column'

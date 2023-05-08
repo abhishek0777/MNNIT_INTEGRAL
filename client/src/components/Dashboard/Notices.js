@@ -1,12 +1,15 @@
 import { Avatar, Button, Card, CardActions, CardContent, CardMedia, Grid, Paper, TextField, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactImageFileToBase64 from "react-file-image-to-base64";
-import noticesImg from '../../images/notices.png'
+import noticesImg from '../../images/notices.svg'
 import noticeImg from '../../images/notice.png'
 import { useDispatch, useSelector } from 'react-redux';
-import { postNotice } from '../../actions/notices.js';
+import { getNotices, postNotice } from '../../actions/notices.js';
 import moment from 'moment';
 import SendIcon from '@mui/icons-material/Send';
+import textureImage from '../../images/texture.jpg'
+import textureImage1 from '../../images/texture1.jpg'
+
 
 const Notices = () => {
 
@@ -16,6 +19,10 @@ const Notices = () => {
   }
 
   const dispatch=useDispatch()
+  useEffect(()=>{
+    dispatch(getNotices())
+  })
+  
   const notices=useSelector((state)=>state.notices)
   const student=useSelector((state)=>state.student)
 
@@ -32,14 +39,13 @@ const Notices = () => {
   }
   return (
     <>
-    <Card sx={{m:2,display:'flex'}}>
+    <Card sx={{m:2,display:'flex',backgroundImage:`url(${textureImage})`}}>
       <CardContent sx={{m:0}}>
           <Typography gutterBottom variant="h5" component="div">
             Notice section
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            
-            Do you have a query? Query related to anything, be it any information, be it doubt related to academic subject or tips for internship & placement preparations.
+          The notice board of a college is a central location for sharing important information with students, faculty, and staff. It typically includes notices about upcoming events, class schedules, academic deadlines, and other important announcements.
           </Typography>
           {(student.isAdmin)&&<Grid container sx={{p:1}} spacing={3}>
             <Grid item xs={12} md={4} sx={{mt:2}}>
@@ -75,7 +81,7 @@ const Notices = () => {
         alt="Live from space album cover"
       />
     </Card>
-    <Paper sx={{m:2,p:1}}>
+    <Paper sx={{m:2,p:1,backgroundImage:`url(${textureImage1})`}}>
       <Grid 
         container 
         spacing={2} 
@@ -85,7 +91,7 @@ const Notices = () => {
       >
         {notices.map(item=>
         <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ maxWidth: 250 }}>
               <CardMedia
                 component="img"
                 alt="card image"

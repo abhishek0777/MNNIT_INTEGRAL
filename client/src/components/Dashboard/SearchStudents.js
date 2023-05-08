@@ -5,6 +5,9 @@ import {getAccounts,viewProfile} from '../../actions/student.js'
 import { useDispatch, useSelector } from 'react-redux'
 import { Stack } from '@mui/system'
 import { BrowserRouter, Link, Route, Routes, useNavigate } from 'react-router-dom'
+import textureImage from '../../images/texture.jpg'
+import textureImage1 from '../../images/texture1.jpg'
+// backgroundImage:`url(${textureImage})`
 
 import '../../assets/css/searchStudents.css'
 
@@ -27,7 +30,7 @@ const SearchStudents = () => {
     <>
       
     <div>
-      <Card sx={{m:2,display: 'flex'}}>
+      <Card sx={{m:2,display: 'flex',backgroundImage:`url(${textureImage})`}}>
       <CardContent sx={{m:0}}>
           <Typography gutterBottom variant="h5" component="div">
             Search Student
@@ -52,7 +55,7 @@ const SearchStudents = () => {
       />
     </Card>
     {/* (account.name.substring(0,searchText.length).toUpperCase()===searchText.toUpperCase()) */}
-    <Paper sx={{m:2}}>
+    <Paper sx={{m:2,p:0.5,backgroundImage:`url(${textureImage1})`}}>
       {students.length===0 && <CustomizedSkeleton/>}
       {students.map((account)=>
         {

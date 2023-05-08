@@ -8,6 +8,9 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkIcon from '@mui/icons-material/Link';
 import profileupdate from '../../images/profileupdate.svg'
 import { updateProfile } from '../../actions/student';
+import textureImage from '../../images/texture.jpg'
+import textureImage1 from '../../images/texture2.jpg'
+// backgroundImage:`url(${textureImage})`
 const UpdateProfile = () => {
 
 const ITEM_HEIGHT = 48;
@@ -336,7 +339,7 @@ clubset.sort()
   }
   return (
     <>
-    <Paper sx={{p:0.5,m:1}}>
+    <Paper sx={{p:0.5,m:1,backgroundImage:`url(${textureImage})`}}>
         <Card sx={{m:1,display:'flex'}}>
         <CardContent sx={{m:0}}>
           <Typography gutterBottom variant="h5" component="div">
@@ -355,8 +358,13 @@ clubset.sort()
         </Card>
     </Paper>
     
-    <Paper sx={{p:1,m:1}}>
-        <Grid container>
+    <Paper sx={{p:1,m:1,backgroundImage:`url(${textureImage1})`}}>
+        <Grid 
+        container
+        direction="column"
+        justifyContent='center'
+        alignItems='center'
+        >
             <Grid item xs={12} md={5}>
 
                 <Paper sx={{p:1,m:2}}>

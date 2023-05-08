@@ -6,6 +6,7 @@ import Sidebar from '../components/Dashboard/Sidebar'
 import { Outlet } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { getAccount } from '../actions/student'
+import { blue,purple } from '@mui/material/colors';
 const Dashboard = () => {
   const dispatch=useDispatch()
   
@@ -23,7 +24,7 @@ const Dashboard = () => {
                 <Sidebar/>
               </Grid>
               <Grid item xs={12} sm={10}>
-                <Outlet/>
+                <Outlet sx={{backgroundColor:purple[50]}}/>
               </Grid>
             </Grid>
         </Stack>

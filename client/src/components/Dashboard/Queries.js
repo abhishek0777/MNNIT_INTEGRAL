@@ -5,6 +5,9 @@ import FolderIcon from '@mui/icons-material/Folder';
 import { useDispatch, useSelector } from 'react-redux';
 import { createQuery, getAllQueries } from '../../actions/queries';
 import Query from './Query/Query';
+import textureImage from '../../images/texture.jpg'
+import textureImage1 from '../../images/texture1.jpg'
+
 
 const Queries = () => {
   let student=useSelector((state)=>state.student)
@@ -31,7 +34,7 @@ const Queries = () => {
   
   return (
     <>
-    <Card sx={{m:2}}>
+    <Card sx={{m:2,backgroundImage:`url(${textureImage})`}}>
       <CardContent sx={{m:0}}>
           <Typography gutterBottom variant="h5" component="div">
             Post your Query
@@ -82,7 +85,7 @@ const Queries = () => {
       </Grid>
       
     </Card>
-    <Paper sx={{m:2,p:1}}>
+    <Paper sx={{m:2,p:1,backgroundImage:`url(${textureImage1})`}}>
       {queries.map(q=>{
         return <Query key={q._id} queryData={q}/> 
       })}

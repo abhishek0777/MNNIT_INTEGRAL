@@ -4,6 +4,9 @@ import writeablog from '../../images/writeablog.svg'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link,useLocation,useNavigate } from 'react-router-dom';
 import { saveNewBlog, saveBlog, publishBlog } from '../../actions/blog';
+import textureImage from '../../images/texture.jpg'
+import textureImage1 from '../../images/texture1.jpg'
+
 
 // jodit text editor
 import JoditEditor from 'jodit-react';
@@ -107,13 +110,13 @@ const WriteABlog = () => {
   }
   return (
     <>
-    <Card sx={{m:2,display: 'flex'}}>
+    <Card sx={{m:2,display: 'flex',backgroundImage:`url(${textureImage})`}}>
       <CardContent sx={{m:0}}>
           <Typography gutterBottom variant="h4" component="div">
             Write a blog for community
           </Typography>
           <Typography variant="body2" color="text.secondary">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel velit in velit interdum ornare. Proin malesuada, nisi vel fringilla euismod, magna massa congue lacus, eget commodo magna elit at dui. Curabitur accumsan vel velit vel accumsan. Sed congue ipsum et eleifend mollis. Sed dapibus velit vel lacinia malesuada. Integer vitae vestibulum ante. In hac habitasse platea dictumst. Sed tincidunt, metus id egestas fringilla, quam leo rutrum ipsum, eu aliquet nisi nisi et nulla.
+          Writing a blog for the college community can be a great way to share information, spark conversations, and foster a sense of community among students, faculty, and staff. When writing a blog, it's important to consider your audience and choose topics that are relevant and interesting to them. You can write about a range of topics, including college news and events, tips for academic success, personal experiences and reflections, and more.
           </Typography>
       </CardContent>
       <CardMedia
@@ -123,12 +126,11 @@ const WriteABlog = () => {
         alt="Live from space album cover"
       />
     </Card>
-    <Card sx={{mr:2,ml:2,display:'block',p:2}}>
+    <Card sx={{mr:2,ml:2,display:'block',p:2,backgroundImage:`url(${textureImage1})`}}>
       <TextField 
         id="Outlined" 
         label="Blog title" 
-        sx={{width:'80%',mt:2}} 
-        focused 
+        sx={{width:'80%',mt:2,backgroundColor:'#FFF'}} 
         multiline 
         maxRows={4}
         placeholder="Write a blog title here...."
@@ -141,11 +143,10 @@ const WriteABlog = () => {
         <Select
           labelId="demo-multiple-chip-label"
           id="demo-multiple-chip"
-          focused
           value={blogCategories}
           onChange={handleChange}
           input={<OutlinedInput id="select-multiple-chip" label="Filter items" />}
-          sx={{width:'100%'}}
+          sx={{width:'100%',backgroundColor:'#FFF'}}
           renderValue={(selected) => (
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
               {selected.map((value) => (

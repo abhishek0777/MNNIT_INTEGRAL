@@ -18,6 +18,9 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import CancelIcon from '@mui/icons-material/Cancel';
 import moment from 'moment'
+import textureImage from '../../images/texture.jpg'
+import textureImage1 from '../../images/texture2.jpg'
+// backgroundImage:`url(${textureImage})`
 
 const Pages = () => {
 
@@ -95,9 +98,10 @@ const Pages = () => {
         userimage:student.picture,
         likes:[]
     }
+    setPost(initialPost)
     dispatch(postingAPost(page._id.toString(),obj))
     setPage({...page,posts:[obj,...page.posts]})
-    setPost(initialPost)
+    
   }
 
   function handleLikeAPost(pageID,postID,userID){
@@ -124,13 +128,13 @@ const Pages = () => {
         <ArrowBackIcon/>
       </Fab>}
 
-    {!showPage&&<Card sx={{m:3,display: 'flex'}}>
+    {!showPage&&<Card sx={{m:3,display: 'flex',backgroundImage:`url(${textureImage})`}}>
       <CardContent sx={{m:0}}>
           <Typography gutterBottom variant="h5" component="div">
             Send a request for new page
           </Typography>
           <Typography variant="body2" color="text.secondary">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis interdum sapien sapien, non eleifend orci interdum non. Donec molestie ligula lorem, ut vehicula dui hendrerit ut. Nulla dignissim hendrerit metus, id mollis justo elementum in. Vivamus euismod varius turpis vel porta. Integer ultrices a velit non ultricies.
+          From this section you can send a request for your page by using the below button, this section provides grids of pages you follow, requests which got rejected with the reasons provided by admin and pages you may know.
           </Typography>
           <Button variant="contained" sx={{mt:5}} onClick={handleDialogOpen}>Send request</Button>
       </CardContent>
@@ -226,7 +230,7 @@ const Pages = () => {
 
 
     {/* Pages you've followed */}
-    {!showPage&&<Paper sx={{m:3,p:1}}>
+    {!showPage&&<Paper sx={{m:3,p:1,backgroundImage:`url(${textureImage1})`}}>
       <Typography variant="h5" gutterBottom>
         Pages you follow
       </Typography>
@@ -270,7 +274,7 @@ const Pages = () => {
 
 
     {/* Rejected Request */}
-    {!showPage&&<Paper sx={{m:3,p:1}}>
+    {!showPage&&<Paper sx={{m:3,p:1,backgroundImage:`url(${textureImage1})`}}>
       <Typography variant="h5" gutterBottom>
         Rejected Request
       </Typography>
@@ -313,7 +317,7 @@ const Pages = () => {
     </Paper>}
 
     {/* Pages you can follow */}
-    {!showPage&&<Paper sx={{m:3,p:1}}>
+    {!showPage&&<Paper sx={{m:3,p:1,backgroundImage:`url(${textureImage1})`}}>
     <Typography variant="h5" gutterBottom>
         Pages you may know
       </Typography>
@@ -355,7 +359,7 @@ const Pages = () => {
     </Paper>}
 
     {showPage&&<>
-    <Card sx={{m:5,display: 'flex'}}>
+    <Card sx={{m:5,display: 'flex',backgroundImage:`url(${textureImage})`}}>
         <CardContent sx={{m:0}}>
             <Typography gutterBottom variant="h5" component="div">
                 {page.name}
@@ -382,43 +386,45 @@ const Pages = () => {
     </Card>
 
     {/* Form to post something */}
-    {(page.admin===student._id.toString())&&<Card sx={{m:5, display:'flex'}}>
+    {(page.admin===student._id.toString())&&<Paper sx={{m:5,p:2,backgroundImage:`url(${textureImage})`,alignItems:'center',justifyContent:'center'}}>
         <Grid 
             container
             direction="row"
             justifyContent="center"
             alignItems="center"
         >
-            <Grid item sx={{mt:1}} xs={1}>
+            <Grid item  xs={2}>
                 <Avatar src={student.picture} sx={{width:56,height:56}}/>
             </Grid>
-            <Grid item sx={{mt:1,mb:0}} xs={8}>
+            <Grid item  xs={4}>
                 <TextField 
-                    fullWidth 
-                    label="Start a post" 
-                    id="fullWidth" 
+                    fullWidth
+                    label="Start a post"
                     sx={{'& .MuiOutlinedInput-root': {
                         '& fieldset': {
                         borderColor: 'black',
                         borderRadius: 50,
+                        width:'80%'
                         }}
                     }}
+                    maxRows={4}
+                    value={post.content}
                     onChange={(e)=>setPost({...post,content:e.target.value})}
                 />
             </Grid>
-            <Grid item xs={1}>
+            <Grid item xs={3}>
                 <ReactImageFileToBase64
                     multiple={true}
                     onCompleted={handleOnCompleted}
                     preferredButtonText='Upload images'
-                />
+                /> 
             </Grid>
-            <Grid item xs={2}>
-                <Button variant="outlined" onClick={handlePost}>Post</Button>
+            <Grid item xs={3}>
+                <Button variant="contained" onClick={handlePost}>Post</Button>
             </Grid>
         </Grid>
-    </Card>}
-    <Paper sx={{m:5,alignItems:'center',justifyContent:'center'}}>
+    </Paper>}
+    <Paper sx={{m:5,alignItems:'center',justifyContent:'center',backgroundImage:`url(${textureImage1})`}}>
       <Grid
         container
         direction='column'

@@ -1,4 +1,4 @@
-import { Avatar, Box, Chip, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText, styled, Switch } from '@mui/material'
+import { Avatar, Box, Chip, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText, ListSubheader, styled, Switch, Typography } from '@mui/material'
 import React from 'react'
 
 // import icons
@@ -19,6 +19,8 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 
+
+
 const StyledLink=styled(Link)({
   textDecoration:"none",
   display:"flex",
@@ -33,15 +35,20 @@ const Sidebar = () => {
     p={2} 
     sx={{display:{xs:"none",md:"block"}}}
     >
-        <Box position="fixed">
-        <List>
+        <Box position="fixed"
+        >
+        <Divider variant="middle">
+          <Chip color="primary" label="Actions"/>
+        </Divider>
+        <List
+        >
           <ListItem disablePadding>
             <ListItemButton>
               <StyledLink to='/dashboard/notices'>
                 <ListItemIcon>
-                  <PushPinTwoToneIcon />
+                  <PushPinTwoToneIcon color="primary"/>
                 </ListItemIcon>
-                <ListItemText primary="Notices" />
+                <ListItemText primary="Notices"/>
               </StyledLink>
             </ListItemButton>
           </ListItem>
@@ -49,9 +56,9 @@ const Sidebar = () => {
             <ListItemButton>
               <StyledLink to='/dashboard/queries'>
                 <ListItemIcon>
-                  <HelpCenterTwoToneIcon />
+                  <HelpCenterTwoToneIcon color="primary"/>
                 </ListItemIcon>
-                <ListItemText primary="Queries" />
+                <ListItemText primary="Queries"/>
               </StyledLink>
             </ListItemButton>
           </ListItem>
@@ -59,7 +66,7 @@ const Sidebar = () => {
             <ListItemButton>
               <StyledLink to='/dashboard/buy-and-sell'>
                 <ListItemIcon>
-                  <StoreTwoToneIcon />
+                  <StoreTwoToneIcon color="primary" />
                 </ListItemIcon>
                 <ListItemText primary="Buy & Sell" />
               </StyledLink>
@@ -69,7 +76,7 @@ const Sidebar = () => {
             <ListItemButton>
               <StyledLink to='/dashboard/feed'>
                 <ListItemIcon>
-                  <DynamicFeedTwoToneIcon />
+                  <DynamicFeedTwoToneIcon color="primary" />
                 </ListItemIcon>
                 <ListItemText primary="Feed" />
               </StyledLink>
@@ -79,7 +86,7 @@ const Sidebar = () => {
             <ListItemButton>
               <StyledLink to='/dashboard/write-a-blog'>
                 <ListItemIcon>
-                  <NoteAltTwoToneIcon />
+                  <NoteAltTwoToneIcon color="primary" />
                 </ListItemIcon>
                 <ListItemText primary="Write a blog" />
               </StyledLink>
@@ -89,7 +96,7 @@ const Sidebar = () => {
           <ListItemButton>
               <StyledLink to='/dashboard/blogs'>
                 <ListItemIcon>
-                  <ArticleTwoToneIcon />
+                  <ArticleTwoToneIcon color="primary" />
                 </ListItemIcon>
                 <ListItemText primary="Blogs" />
               </StyledLink>
@@ -99,7 +106,7 @@ const Sidebar = () => {
             <ListItemButton>
               <StyledLink to='/dashboard/search-students'>
                 <ListItemIcon>
-                  <PersonSearchTwoToneIcon />
+                  <PersonSearchTwoToneIcon color="primary" />
                 </ListItemIcon>
                 <ListItemText primary="Search Students" />
               </StyledLink>
@@ -109,7 +116,7 @@ const Sidebar = () => {
             <ListItemButton>
               <StyledLink to='/dashboard/pageRequests'>
                 <ListItemIcon>
-                  <ArchiveIcon />
+                  <ArchiveIcon color="primary"/>
                 </ListItemIcon>
                 <ListItemText primary="Page requests" />
               </StyledLink>
@@ -119,7 +126,7 @@ const Sidebar = () => {
             <ListItemButton>
               <StyledLink to='/dashboard/pages'>
                 <ListItemIcon>
-                  <PagesTwoToneIcon />
+                  <PagesTwoToneIcon color="primary"/>
                 </ListItemIcon>
                 <ListItemText primary="Pages" />
               </StyledLink>
@@ -128,17 +135,18 @@ const Sidebar = () => {
         </List>
 
         <Divider variant="middle">
-          <Chip label="Profile"/>
+          <Chip color="primary" label="Profile"/>
         </Divider>
 
         
 
-        <List>
+        <List
+        >
           <ListItem disablePadding>
             <ListItemButton>
               <StyledLink to='/dashboard/profile'>
                 <ListItemIcon>
-                  <PersonTwoToneIcon />
+                  <PersonTwoToneIcon color="primary" />
                 </ListItemIcon>
                 <ListItemText primary="Profile" />
               </StyledLink>
@@ -148,7 +156,7 @@ const Sidebar = () => {
             <ListItemButton>
               <StyledLink to='/dashboard/update-profile'>
                 <ListItemIcon>
-                  <ManageAccountsTwoToneIcon />
+                  <ManageAccountsTwoToneIcon color="primary" />
                 </ListItemIcon>
                 <ListItemText primary="Manage profile" />
               </StyledLink>
@@ -158,7 +166,7 @@ const Sidebar = () => {
             <ListItemButton>
               <StyledLink to='/dashboard/notices'>
                 <ListItemIcon>
-                  <LogoutTwoToneIcon />
+                  <LogoutTwoToneIcon color="primary" />
                 </ListItemIcon>
                 <ListItemText primary="Logout" />
               </StyledLink>

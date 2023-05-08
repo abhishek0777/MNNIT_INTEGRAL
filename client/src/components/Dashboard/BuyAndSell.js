@@ -6,6 +6,9 @@ import FolderIcon from '@mui/icons-material/Folder';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem, getAllItems } from '../../actions/items';
 import Item from './Item/Item';
+import textureImage from '../../images/texture.jpg'
+import textureImage1 from '../../images/texture1.jpg'
+// backgroundImage:`url(${textureImage})`
 
 const BuyAndSell = () => {
   const student=useSelector((state)=>state.student)
@@ -107,7 +110,7 @@ const BuyAndSell = () => {
   }
   return (
   <>
-    <Card sx={{m:2,display: 'flex'}}>
+    <Card sx={{m:2,display: 'flex',backgroundImage:`url(${textureImage})`}}>
       <CardContent sx={{m:0}}>
           <Typography gutterBottom variant="h5" component="div">
             Add an item to sell
@@ -125,7 +128,7 @@ const BuyAndSell = () => {
       />
     </Card>
 
-    <Card sx={{m:2}}>
+    <Card sx={{m:2,backgroundImage:`url(${textureImage})`}}>
       <CardContent>
         <FormControl sx={{width:'100%'}}>
           <InputLabel id="demo-multiple-chip-label">Filter Items</InputLabel>
@@ -136,7 +139,7 @@ const BuyAndSell = () => {
             value={itemTags}
             onChange={handleChange}
             input={<OutlinedInput id="select-multiple-chip" label="Filter items" />}
-            sx={{width:'100%'}}
+            sx={{width:'100%',backgroundColor:'#FFF'}}
             renderValue={(selected) => (
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
                 {selected.map((value) => (
@@ -161,7 +164,7 @@ const BuyAndSell = () => {
       </CardContent>
     </Card>
 
-    <Paper sx={{m:2,p:1}}>
+    <Paper sx={{m:2,p:1,backgroundImage:`url(${textureImage1})`}}>
       <Grid 
         container 
         spacing={2} 

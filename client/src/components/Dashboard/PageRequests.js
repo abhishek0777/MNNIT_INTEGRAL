@@ -5,6 +5,9 @@ import { Button, ButtonGroup, Card, CardActions, CardContent, CardMedia, Chip, D
 import pageRequestSVG from '../../images/pageRequest1.svg'
 import DoneIcon from '@mui/icons-material/Done';
 import ClearIcon from '@mui/icons-material/Clear';
+import textureImage from '../../images/texture.jpg'
+import textureImage1 from '../../images/texture1.jpg'
+// backgroundImage:`url(${textureImage})`
 
 const PageRequests = () => {
 
@@ -50,13 +53,13 @@ const PageRequests = () => {
     }
     return (
         <>
-        <Card sx={{m:2,display: 'flex'}}>
+        <Card sx={{m:2,display: 'flex',backgroundImage:`url(${textureImage})`}}>
             <CardContent sx={{m:0}}>
                 <Typography gutterBottom variant="h5" component="div">
                     Send a request for new page
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis interdum sapien sapien, non eleifend orci interdum non. Donec molestie ligula lorem, ut vehicula dui hendrerit ut. Nulla dignissim hendrerit metus, id mollis justo elementum in. Vivamus euismod varius turpis vel porta. Integer ultrices a velit non ultricies.
+                This list typically includes requests from users or stakeholders for new pages or updates to existing ones. By maintaining and prioritizing this list, website administrators can ensure that they are meeting the needs of their audience and delivering content that is relevant and up-to-date. 
                 </Typography>
             </CardContent>
             <CardMedia
@@ -67,7 +70,7 @@ const PageRequests = () => {
             />
         </Card>
 
-        <Paper sx={{m:2,p:1}}>
+        <Paper sx={{m:2,p:1,backgroundImage:`url(${textureImage1})`}}>
         <Grid
             container 
             spacing={2} 
